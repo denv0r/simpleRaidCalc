@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Raid Cost Calculator</title>
+		<title>A Simple Raid Calculator</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
@@ -10,7 +10,7 @@
 				flex-wrap: wrap;
 				align-items: center;
 				justify-content: center;
-				max-width: 600px;
+				max-width: 400px;
 				margin: auto;
 				padding: 20px;
 				border: 1px solid #ddd;
@@ -42,7 +42,7 @@
 
 			button {
 				padding: 10px 20px;
-				background-color: #4CAF50;
+				background-color: #c85d1a;
 				color: white;
 				border-radius: 5px;
 				border: none;
@@ -51,7 +51,7 @@
 			}
 
 			button:hover {
-				background-color: #3e8e41;
+				background-color: #c85d1a;
 			}
 
 			#result {
@@ -86,29 +86,30 @@
 		<h2>A Simple Raid Calculator</h2>
 		<form>
 			<div>
-				<label for="armoured-doors">Armoured Doors:</label>
-				<input type="number" id="armoured-doors" name="armoured-doors" value="0">
-			</div>
-			<div>
+				<label for="armored-doors">Armored Doors:</label>
+				<input type="number" id="armored-doors" name="armored-doors" value="0" min="0">
+			  </div>
+			  <div>
 				<label for="garage-doors">Garage Doors:</label>
-				<input type="number" id="garage-doors" name="garage-doors" value="0">
-			</div>
-			<div>
+				<input type="number" id="garage-doors" name="garage-doors" value="0" min="0">
+			  </div>
+			  <div>
 				<label for="sheet-metal-doors">Sheet Metal Doors:</label>
-				<input type="number" id="sheet-metal-doors" name="sheet-metal-doors" value="0">
-			</div>
-			<div>
-				<label for="armoured-walls">Armoured Walls:</label>
-				<input type="number" id="armoured-walls" name="armoured-walls" value="0">
-			</div>
-			<div>
+				<input type="number" id="sheet-metal-doors" name="sheet-metal-doors" value="0" min="0">
+			  </div>
+			  <div>
+				<label for="armored-walls">Armored Walls:</label>
+				<input type="number" id="armored-walls" name="armored-walls" value="0" min="0">
+			  </div>
+			  <div>
 				<label for="sheet-metal-walls">Sheet Metal Walls:</label>
-				<input type="number" id="sheet-metal-walls" name="sheet-metal-walls" value="0">
-			</div>
-			<div>
+				<input type="number" id="sheet-metal-walls" name="sheet-metal-walls" value="0" min="0">
+			  </div>
+			  <div>
 				<label for="stone-walls">Stone Walls:</label>
-				<input type="number" id="stone-walls" name="stone-walls" value="0">
-		</div>
+				<input type="number" id="stone-walls" name="stone-walls" value="0" min="0">
+			  </div>
+			  
 		<br>
 		<button type="button" onclick="calculateRaidCost()">Calculate Raid Cost</button>
 	</form>
@@ -117,15 +118,15 @@
 
 <script>
 	function calculateRaidCost() {
-		let armouredDoors = document.getElementById("armoured-doors").value;
+		let armoredDoors = document.getElementById("armored-doors").value;
 		let garageDoors = document.getElementById("garage-doors").value;
 		let sheetMetalDoors = document.getElementById("sheet-metal-doors").value;
-		let armouredWalls = document.getElementById("armoured-walls").value;
+		let armoredWalls = document.getElementById("armored-walls").value;
 		let sheetMetalWalls = document.getElementById("sheet-metal-walls").value;
 		let stoneWalls = document.getElementById("stone-walls").value;
 
-		let rocketsCost = (armouredDoors * 5) + (garageDoors * 3) + (sheetMetalDoors * 2) + (armouredWalls * 15) + (sheetMetalWalls * 8) + (stoneWalls * 4);
-		let c4Cost = (armouredDoors * 3) + (garageDoors * 2) + (sheetMetalDoors * 1) + (armouredWalls * 8) + (sheetMetalWalls * 4) + (stoneWalls * 2);
+		let rocketsCost = (armoredDoors * 5) + (garageDoors * 3) + (sheetMetalDoors * 2) + (armoredWalls * 15) + (sheetMetalWalls * 8) + (stoneWalls * 4);
+		let c4Cost = (armoredDoors * 3) + (garageDoors * 2) + (sheetMetalDoors * 1) + (armoredWalls * 8) + (sheetMetalWalls * 4) + (stoneWalls * 2);
 
 		let result = document.getElementById("result");
 		result.innerHTML = "Rockets Cost: " + rocketsCost + "<br>C4 Cost: " + c4Cost;
